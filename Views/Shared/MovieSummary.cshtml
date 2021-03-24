@@ -6,7 +6,7 @@
 
 @model Movie
 
-<tr>
+<tr class="frosted-hover">
     <td scope="col">@Model.MovieID</td>
     <td scope="col">@Model.MovieTitle</td>
     <td scope="col">@Model.Category</td>
@@ -28,7 +28,7 @@
     <td scope="col">
         <form method="post" asp-action="EditMovie">
             <input hidden value="@Model.MovieID" name="movieId" readonly />
-            <input type="submit" class="btn btn-outline-warning" value="Edit" />
+            <input type="submit" class="btn btn-outline-light" value="Edit" />
         </form>
     </td>
     <td scope="col">
