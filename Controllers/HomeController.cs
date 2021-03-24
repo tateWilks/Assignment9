@@ -17,10 +17,14 @@ namespace Assignment9.Controllers
         private IMovieRepository _repository;
         public int iPageSize = 20;
 
-        public HomeController(ILogger<HomeController> logger, IMovieRepository repo)
+        //apparently this makes things freaking easy?? and i didn't need to do all that sql connection stuff?? rip me
+        private DatabaseContext _context { get; set; } //the way i did it still works so whatever it's good to know both
+
+        public HomeController(ILogger<HomeController> logger, IMovieRepository repo)//, DatabaseContext con)
         {
             _logger = logger;
             _repository = repo;
+            //_context = con;
         }
 
         //View for the index page
@@ -94,7 +98,7 @@ namespace Assignment9.Controllers
         }
 
         //view to display all the movies
-        public IActionResult Movies(int iPageNum = 1)
+        public IActionResult Movies(int iPageNum = 1) //needs to match the Page URL Value in the Tag Helper file (PageUrlValues["iPageNum"]
         {
             //using a view model so we can have some pagination
             return View(new MovieListViewModel
@@ -118,8 +122,9 @@ namespace Assignment9.Controllers
             //This is giving me problems
             //This works though - why does this work? need to work through this
             //IQueryable<Movie> em = from m in _repository.Movies where m.MovieID == movieId select m;
-            Movie mov = (from m in _repository.Movies where m.MovieID == movieId select m).First();
             //Movie editMovie = em.First();
+
+            Movie mov = (from m in _repository.Movies where m.MovieID == movieId select m).First();            
 
             //return the view with the movie object
             return View(mov);
@@ -134,7 +139,7 @@ namespace Assignment9.Controllers
                 return View("EditMovie");
             } 
             else
-            {
+            {                
                 string conn = @"DataSource=C:\Users\Tatew\IS_Core\Winter\IS413\source\Assignment9\MovieCollection.sqlite";
                 SqliteConnection sqlConn = new SqliteConnection(conn);
 
