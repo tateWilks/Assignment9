@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+@model Movie
+
+<div class="container mt-lg-4 col-4">
+    <h1 class="display-4 text-light">Enter a New Movie</h1>
+    <p class="text-muted">Entries will be stored to the local database</p>
+    <form asp-action="ConfirmEdit" method="post" class="text-light">
+        <input hidden asp-for="MovieID" readonly />
+        <div class="form-group row">
+            <label asp-for="MovieTitle" class="col-sm-2 col-form-label text-right">Title</label>
+            <div class="col-sm-10">
+                <input asp-for="MovieTitle" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.MovieTitle" />@Html.ValidationMessageFor(m => m.MovieTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Category" class="col-sm-2 col-form-label text-right">Category</label>
+            <div class="col-sm-10">
+                <input asp-for="Category" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.Category" />@Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row col-sm-10">
+            <label asp-for="Rating" class="col-sm-2 col-form-label text-right">Rating</label>
+            <div class="col-sm-10">
+                <select asp-for="Rating" class="form-control bg-dark btn-outline-dark text-light">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                    <option value="UR">UR</option>
+                    <option value="NR">NR</option>
+                    <option value="TV-Y7">TV-Y7</option>
+                    <option value="TV-PG">TV-PG</option>
+                    <option value="TV-14">TV-14</option>
+                    <option value="TV-MA">TV-MA</option>
+                </select>@Html.ValidationMessageFor(m => m.Rating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Director" class="col-sm-2 col-form-label text-right">Director(s)</label>
+            <div class="col-sm-10">
+                <input asp-for="Director" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.Director" />@Html.ValidationMessageFor(m => m.Director, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="YearReleased" class="col-sm-2 col-form-label text-right">Year Released</label>
+            <div class="col-sm-10">
+                <input asp-for="YearReleased" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.YearReleased" />@Html.ValidationMessageFor(m => m.YearReleased, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="LentTo" class="col-sm-2 col-form-label text-right">Lent To</label>
+            <div class="col-sm-10">
+                <input asp-for="LentTo" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.LentTo" />
+            </div>
+        </div>
+        <div class="form-check">
+            <label asp-for="Edited" class="form-check-label">Edited</label>
+            <div>
+                <input type="checkbox" class="form-check-input" asp-for="Edited"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Notes" class="col-sm-2 col-form-label text-right">Additional Notes</label>
+            <div class="col-sm-10">
+                <textarea asp-for="Notes" class="form-control bg-dark btn-outline-dark text-light" placeholder="@Model.Notes"></textarea>
+            </div>
+        </div>
+        <input type="submit" value="Finish Edit" class="btn btn-outline-success btn-block" />
+    </form>
+</div>

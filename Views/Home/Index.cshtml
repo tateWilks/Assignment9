@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="d-flex mt-lg-4">
+    <div class="col-8 text-left">
+        <h1 class="title-page-text">The Joey Hilton Film Collection</h1>
+        <p class="text-muted h5 ml-5">An Archive of All Movies Ever Viewed By Joey Hilton</p>
+    </div>
+    <div class="col-3">        
+        <img class="img-fluid" src="~/img/JHilton.jpg" />  
+        <div class="container mt-4">
+            <a class="btn btn-outline-light btn-lg btn-block" asp-controller="Home" asp-action="Movies">View Collection</a>
+            <a class="btn btn-outline-light btn-lg btn-block" asp-controller="Home" asp-action="AddMovie">Add a Movie</a>
+        </div>
+    </div>
+</div>
