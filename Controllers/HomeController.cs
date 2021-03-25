@@ -63,7 +63,7 @@ namespace Assignment9.Controllers
                 cmd.Parameters.AddWithValue("@movieId", movie.MovieID);
                 cmd.Parameters.AddWithValue("@category", movie.Category);
                 cmd.Parameters.AddWithValue("@director", movie.Director);
-                cmd.Parameters.AddWithValue("@edited", movie.Edited ? "No" : "Yes"); //the nullable values are giving me issues with this.... need to see another solution
+                cmd.Parameters.AddWithValue("@edited", movie.Edited); //the nullable values are giving me issues with this.... need to see another solution
                 cmd.Parameters.AddWithValue("@lentto", System.String.IsNullOrEmpty(movie.LentTo) ? "" : movie.LentTo);
                 cmd.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
                 cmd.Parameters.AddWithValue("@notes", System.String.IsNullOrEmpty(movie.Notes) ? "" : movie.Notes);
@@ -151,7 +151,7 @@ namespace Assignment9.Controllers
                 cmd.Parameters.AddWithValue("@movieId", movie.MovieID);
                 cmd.Parameters.AddWithValue("@category", movie.Category);
                 cmd.Parameters.AddWithValue("@director", movie.Director);
-                cmd.Parameters.AddWithValue("@edited", movie.Edited ? "No" : "Yes"); //the nullable values are giving me issues with this.... need to see another solution
+                cmd.Parameters.AddWithValue("@edited", movie.Edited); //the nullable values are giving me issues with this.... need to see another solution
                 cmd.Parameters.AddWithValue("@lentto", System.String.IsNullOrEmpty(movie.LentTo) ? "" : movie.LentTo);
                 cmd.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
                 cmd.Parameters.AddWithValue("@notes", System.String.IsNullOrEmpty(movie.Notes) ? "" : movie.Notes);

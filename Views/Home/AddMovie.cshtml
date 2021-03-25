@@ -47,7 +47,7 @@
         <div class="form-group row">
             <label asp-for="YearReleased" class="col-sm-2 col-form-label text-right">Year Released</label>
             <div class="col-sm-10">
-                <input asp-for="YearReleased" class="form-control bg-dark btn-outline-dark text-light" min="1900" max="@System.DateTime.Now.Year" />@Html.ValidationMessageFor(m => m.YearReleased, "", new { @class = "text-danger" })
+                <input asp-for="YearReleased" class="form-control bg-dark btn-outline-dark text-light" />@Html.ValidationMessageFor(m => m.YearReleased, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group row">
@@ -56,17 +56,15 @@
                 <input asp-for="LentTo" class="form-control bg-dark btn-outline-dark text-light" />
             </div>
         </div>
-        <div class="form-check">
-            <label asp-for="Edited" class="form-check-label">Edited</label>
-            <div>
-                <input type="checkbox" class="form-check-input" asp-for="Edited" />
-            </div>
-        </div>
         <div class="form-group row">
             <label asp-for="Notes" class="col-sm-2 col-form-label text-right">Additional Notes</label>
             <div class="col-sm-10">
                 <textarea asp-for="Notes" class="form-control bg-dark btn-outline-dark text-light"></textarea>
             </div>
+        </div>
+        <div class="form-check mb-3">
+            @Html.CheckBoxFor(model => model.Edited, new { @class = "form-check-input col-sm-" })
+            <label asp-for="Edited" class="form-check-label">Edited</label>
         </div>
         <input type="submit" value="Submit" class="btn btn-outline-success btn-block" />
     </form>
